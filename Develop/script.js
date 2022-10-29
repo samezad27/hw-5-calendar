@@ -2,7 +2,7 @@
 $(document).ready(function () {
     //display day and time on page
 
-        //save clicks
+    //save clicks
 
         //get time and description values
 
@@ -14,6 +14,17 @@ $(document).ready(function () {
 
     //create function to update hours
 
-        // 
+        //get current hours
+        
+        //loop over scheduled times
+
+        //check if we are in the past present or future
+
+    //invoke the update hour function
+
+    //set up variable to check if current time needs to be updated
+
+    //load data from local storage
+
   });
 
