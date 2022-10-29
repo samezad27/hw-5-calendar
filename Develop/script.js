@@ -1,10 +1,11 @@
 //FUNCTION 
 $(document).ready(function () {
     //display day and time on page
+    $('#currentDay').text(moment().format('dddd, MMMM Do'));
 
     //save clicks
 
-        //get time and description values
+        //set variables for time and description values 
 
         //save to local storage
 
