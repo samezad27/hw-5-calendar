@@ -1,14 +1,13 @@
 //FUNCTION will run the callback function once the HTML index file has loaded
-$(function(){
-    //display day and time on page
-    $('#currentDay').text(moment().format('dddd, MMMM Do'));
+$(document).ready(function () {
+    
 
     //save clicks--jquery onclick function. Once we click this button it will run this callback function
-    $('.saveBtn').on("click", function (){
+    $('.saveBtn').on('click', function () {
 
         //set variables for time and description values at the time of the click
         var value = $(this).siblings('.description').val();
-        var time =$(this).parent().attr('id');
+        var time = $(this).parent().attr('id');
         //time variable will be stored as "hour-9" etc. This will need to be fixed later to grab just the number.
 
         //save to local storage(only the users local browser) users won't see eachothers changes
@@ -23,29 +22,16 @@ $(function(){
 
         //remove show class after timeout -- show will only leave the notification for 5 seconds
 
-        setTimeout(function(){
+        setTimeout(function () {
             $('.notification').removeClass('show');
-        }, 15000);
-        
+          }, 5000);
+        });
 
-   
-    });
-
-    //load saved data from local storage. 
-
-    $('#hour-9 .description').val(localStorage.getItem('hour-9'));
-    $('#hour-10 .description').val(localStorage.getItem('hour-10'));
-    $('#hour-11 .description').val(localStorage.getItem('hour-11'));
-    $('#hour-12 .description').val(localStorage.getItem('hour-12'));
-    $('#hour-13 .description').val(localStorage.getItem('hour-13'));
-    $('#hour-14 .description').val(localStorage.getItem('hour-14'));
-    $('#hour-15 .description').val(localStorage.getItem('hour-15'));
-    $('#hour-16 .description').val(localStorage.getItem('hour-16'));
-    $('#hour-17 .description').val(localStorage.getItem('hour-17'));
+  
 
 
     //create function to update hours
-    function updateHours(){
+    function hourUpdater() {
 
         //get current hours
         var currentHour = moment().hours();
@@ -68,21 +54,37 @@ $(function(){
                 $(this).removeClass('present');
                 $(this).addClass('future');
             }
-
-        });
-
-    }
+            });
+        }
 
 
 
-     //invoke the update hour function
-     updateHours();
-
-
+     //invoke the update hour function ------ THIS IS BROKEN I NEED TO FIGURE OUT WHY THIS FUNCTION ISNT RUNNING
+     hourUpdater();
 
     //set up variable to check if current time needs to be updated-- calling set interval and passing two arguments
+
+    var interval = setInterval(hourUpdater, 15000);
+
+
+    //load saved data from local storage. 
+
+    $('#hour-9 .description').val(localStorage.getItem('hour-9'));
+    $('#hour-10 .description').val(localStorage.getItem('hour-10'));
+    $('#hour-11 .description').val(localStorage.getItem('hour-11'));
+    $('#hour-12 .description').val(localStorage.getItem('hour-12'));
+    $('#hour-13 .description').val(localStorage.getItem('hour-13'));
+    $('#hour-14 .description').val(localStorage.getItem('hour-14'));
+    $('#hour-15 .description').val(localStorage.getItem('hour-15'));
+    $('#hour-16 .description').val(localStorage.getItem('hour-16'));
+    $('#hour-17 .description').val(localStorage.getItem('hour-17'));
+
+
+    //display day and time on page
+    $('#currentDay').text(moment().format('dddd, MMMM Do'));
+
 
   });
 
 
-
+  
