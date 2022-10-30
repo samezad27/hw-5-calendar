@@ -45,21 +45,44 @@ $(function(){
 
 
     //create function to update hours
-    
+    function updateHours(){
 
         //get current hours
-        
+        var currentHour = moment().hours();
+
         //loop over scheduled times "time block rows"
 
-        //create variable that can parse blockhour into the integer
+        $('.time-block').each(function () {
+            //create variable that can parse and split blockhour into the integer to be used to determine numerical hour
+            var blockHour = parseInt($(this).attr('id').split('-')[1]);
+
 
         //check if we are in the past present or future using an if statement that compares block hour to current hour
+            if (blockHour < currentHour) {
+                $(this).addClass('past');
+            } else if (blockHour === currentHour) {
+                $(this).removeClass('past');
+                $(this).addClass('present');
+            } else {
+                $(this).removeClass('past');
+                $(this).removeClass('present');
+                $(this).addClass('future');
+            }
 
-    //invoke the update hour function
+        });
+
+    }
+
+
+
+     //invoke the update hour function
+     updateHours();
+
+
 
     //set up variable to check if current time needs to be updated-- calling set interval and passing two arguments
 
-    
-
   });
+
+
 
