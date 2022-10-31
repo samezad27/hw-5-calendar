@@ -68,11 +68,16 @@ $(document).ready(function () {
 
 
     //load saved data from local storage. can we refactor this? 
-    
-    for (let hour = 9; hour <=17; hour +=1) {
-        const fetched = localStorage.getItem(`hour-${hour}`);
-        $(`#hour-${hour} .description`).val(fetched);
-    }
+    $(".time-block").each((i, item)=>{
+        const $item = $(item);
+        const $id = $item.attr("id")
+        const fetched = localStorage.getItem($id);
+        $item.children(".description").val(fetched);
+    })
+    // for (let hour = 9; hour <=17; hour +=1) {
+    //     const fetched = localStorage.getItem(`hour-${hour}`);
+    //     $(`#hour-${hour} .description`).val(fetched);
+    // }
 
     /*
     $('#hour-9 .description').val(localStorage.getItem('hour-9'));
