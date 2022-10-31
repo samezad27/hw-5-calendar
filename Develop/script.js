@@ -31,7 +31,7 @@ $(document).ready(function () {
 
 
     //create function to update hours
-    function hourUpdater() {
+    function updateHour() {
 
         //get current hours
         var currentHour = moment().hours();
@@ -60,14 +60,15 @@ $(document).ready(function () {
 
 
      //invoke the update hour function ------ THIS IS BROKEN I NEED TO FIGURE OUT WHY THIS FUNCTION ISNT RUNNING
-     hourUpdater();
+     updateHour();
 
     //set up variable to check if current time needs to be updated-- calling set interval and passing two arguments
 
-    var interval = setInterval(hourUpdater, 15000);
+    var interval = setInterval(updateHour, 15000);
 
 
-    //load saved data from local storage. 
+    //load saved data from local storage. can we refactor this? 
+
 
     $('#hour-9 .description').val(localStorage.getItem('hour-9'));
     $('#hour-10 .description').val(localStorage.getItem('hour-10'));
