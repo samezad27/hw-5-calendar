@@ -68,8 +68,13 @@ $(document).ready(function () {
 
 
     //load saved data from local storage. can we refactor this? 
+    
+    for (let hour = 9; hour <=17; hour +=1) {
+        const fetched = localStorage.getItem(`hour-${hour}`);
+        $(`#hour-${hour} .description`).val(fetched);
+    }
 
-
+    /*
     $('#hour-9 .description').val(localStorage.getItem('hour-9'));
     $('#hour-10 .description').val(localStorage.getItem('hour-10'));
     $('#hour-11 .description').val(localStorage.getItem('hour-11'));
@@ -79,6 +84,7 @@ $(document).ready(function () {
     $('#hour-15 .description').val(localStorage.getItem('hour-15'));
     $('#hour-16 .description').val(localStorage.getItem('hour-16'));
     $('#hour-17 .description').val(localStorage.getItem('hour-17'));
+    */
 
 
     //display day and time on page
