@@ -74,6 +74,27 @@ $(document).ready(function () {
         const fetched = localStorage.getItem($id);
         $item.children(".description").val(fetched);
     })
+    
+    // $("div") --- this grabs a div
+    // $("<div>") -- this creates a div
+
+    //refactoring HTML by manipulating the dom
+
+    //each loop to create a div or time block for all hours between 9-17
+
+    for (let i = 9; hour <=17; hour +=1) {
+        $("<div>").addclass("row time-block").attr("id", `hour-${i}`).append(
+
+        )
+
+    }
+        
+    
+
+
+
+    
+    //REFACTORED ALL CODE BELOW
     // for (let hour = 9; hour <=17; hour +=1) {
     //     const fetched = localStorage.getItem(`hour-${hour}`);
     //     $(`#hour-${hour} .description`).val(fetched);
