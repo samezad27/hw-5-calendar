@@ -3,8 +3,8 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
 Created a dynamic calendar using Jquery!
--Live URL: 
--Git URL:
+-Live URL: https://samezad27.github.io/hw-5-calendar/
+-Git URL: https://github.com/samezad27/hw-5-calendar
 
 
 ![](https://i.ibb.co/xMzDDQB/Screen-Shot-2022-10-31-at-6-05-04-PM.png)
